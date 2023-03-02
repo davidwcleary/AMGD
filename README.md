@@ -128,7 +128,7 @@ While we are here let's make our own directory and move into it.  We do this by 
   * Dates help a lot 2023-03-02-myfile.txt.
   * No special characters as they get interpreted very differently on the command line to how you would read them.
 
-Now back to `mkdir`. Let's check we are in `/shared/data/tutorials/terminal-basics` make a folder called ***test-folder*** check it is there and then move into it.
+Now back to `mkdir`. Let's check we are in `/shared/data/tutorials/terminal-basics` make a folder called **test-folder** check it is there and then move into it.
 
 ```shell
 $ mkdir test-folder
@@ -147,7 +147,7 @@ $ cp ../orders.tsv .
 
 Now there are a few elements we are bringing together here. The first is that I am telling `cp` that the file I want to copy is one level up `../` called orders.tsv and I want to copy it to where I am `.`. I could specify the absolute path to the file using /shared/data/tutorials/terminal-basics/orders.tsv but typing can be boring and where there is safe shortcut we should try and use it.
 
-> Have you tried autocompleting with TAB yet? I'll let you find that joy all buy yourself.
+> Have you tried autocompleting with TAB yet? I'll let you find that joy all by yourself.
 
 Back to our file we have just copied across. Check it is there using `ls` and to avoid confusion, let's rename. This command to do this is `mv`.  There are `rename` commands but `mv` does what we need very nicely. Remember to alwasys check that what happens is what you intended!
 
@@ -209,7 +209,7 @@ DESCRIPTION
        non-zero-length sequence of characters delimited by white space.
 ```
 
-Ok so what the manual is telling us is that if we just use `wc` without any extra flags we get the number of newlines, then number or words and the file size printed out. Pretty useful. Generally I am only interested in the number of lines (imagine how useful that might be for counting reads in a fastq file) so I generally use `wc -l` which here gives us:
+Ok so what the manual is telling us is that if we just use `wc` without any extra flags we get the number of newlines, then number of words and the file size printed to the terminal. Pretty useful! Generally I am only interested in the number of lines (imagine how useful that might be for counting reads in a fastq file) so I generally use `wc -l` which here gives us:
 
 ```shell 
 $ wc -l orders-copy.tsv 
