@@ -23,19 +23,57 @@ When we talk about **absolute paths** that refers to the address of where you, o
 
 <img src="https://github.com/davidwcleary/AMGD/blob/main/file-system.png" width="150" height="150">
 
-> /home/data/raw/sequence/sequence.fasta
+> /home/data/sequence/sequence.fasta
 
 ### Basic Commands
 
+Ok, let's assume you have a terminal window and what you should see is some form of prompt, typically **%**. 
+Now let's start having a look around in the https://sandbox.bio/ Command Line playground. 
+
+First, where am I? To work this out we can use the Path to Working Directory command `pwd`. This command will return the absolute path to where you are. 
+
 ```shell
-pwd
+% pwd
 ```
-This command will return the absolute path to where you are. In this case it will return:
+In this case it will return:
 
 > /shared/data
 
+Now let us have a look at what is present:
+
 ```shell
-ls
+% ls
+```
+> guest@sandbox$ ls
+> tutorials 
+
+For this command, and indeed all of those I am going to introduce you to, you can get more information by typing:
+
+```shell
+% man ls
+```
+In this sandbox environment the manual will be shown on screen, in other terminals you may get a page down which you can scroll using the spacebar.  In that situation, to quit simply press **Q**.
+
+Ok, bak to listing directory contents. Sometimes though you might want to know more about the files that are present.  This is where we can use **flags**.  Think of these as extra bits of command you can pass to `ls`.  Here we have an example of -l or long listing. In this case we get a lot more information: 
+
+```shell
+% ls -l
+```
+> guest@sandbox$ ls -l
+> total 1
+> drwxrwxrwx 1 0 0 4096 Mar  2 10:45 tutorials
+
+The third line begins with an overview of who has which permissions for, in this case, the directory **tutorials**. What then follows is information about ownership, file size (note this is a folder but the folder size is not what is being displayed here - more on that later), date and time last modified and finally the name.
+
+Now try the following and see if you can work out what the flags -t -r and -h are doing.
+
+```shell
+% ls -ltrh
 ```
 
-To find out what is in your directory type ls. This will list all contents: 
+
+
+
+
+
+
