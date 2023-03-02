@@ -1,39 +1,41 @@
-# AMGD
+# Analysing Microbial Genomic Data
 # Command Line Basics
 
-Welcome to the command line basics tutorial for the Analysing Microbial Genomic Data course. 
+Welcome to the command line basics tutorial for the Analysing Microbial Genomic Data course run by the Institute of Microbiology and Infection, University of Birmingham.
 
-The following short guide is designed to demystify the UNIX command line, introducing course participants to the very basics of the environment, as well as simple commands to navigate, find, view and edit files using simple Bash commands.
+The following short guide is designed purely to demystify the command line, introducing course participants to the very basics of the environment, as well as some simple commands to navigate, find, view and edit files using Bash.
 
 
 ## UNIX
 
-So, What is Unix? Unix is an operating system developed in the 1960s. It provides a means to perform operations on your computer when there is no Graphical User Interface (GUI). It's worth remembering that there are differnt versions of UNIX. Some of you may have heard of Linux. This is a family of open-source Unix-like operating systems based on the Linux kernal, and operating system developed and released by Linus (hence the name) Torvalds in the early 90's.
+So, what is Unix? Unix is an operating system that was developed in the 1960s. For us bioinformaticians it is particularly important as it provides a means to perform operations on our computers when there is no Graphical User Interface (GUI). This is very common for programs and tools developing for analysing sequence data. It's worth knowing that there are differnt versions of Unix. Some of you may have heard of Linux for example. This is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system developed and released by Linus (hence the name) Torvalds in the early 90's. At this point there is no need to go further down this particular rabbit hole.
 
-The shell is the interface between you and the kernel, the bit that is actually doing all the work.  You may have come across BASH.  This is the Bourne-Again Shell. Bash is both a unix shell and command language and is/was the default shell for most unix operating systems. Those of us with new Macbooks will see our default shell is now Zsh (the Z-shell), which is an extended, improved Bash. Confused? Don't worry. These are the idiosyncracies that one learns over time.
+The shell is the interface between you and that operating system kernel, the bit that is actually doing all the work. You may have come across BASH. This is the Bourne-Again Shell. Bash is both a unix shell and command language and is/was the default shell for most unix operating systems. Those of us with new Macbooks will see our default shell is now Zsh (the Z-shell), which is an extended, improved Bash. Confused? Don't worry. These are the idiosyncracies that one learns over time.
 
-The important point is that the shell is the **command line interpreter** which takes the instructions (commands) that you write and gives them what they need to run. 
+The important point is that the shell is the **command line interpreter** which takes the instructions (commands) that you write and gives them what they need to run i.e., allocating memory and compute to tasks.
+
+As you become more accustomed to working in these unix-like environments it is worth getting to know some of the basic details of how they work, but for now we only need to concern ourselves with navigating the file system and performing some basic file manipulations. 
 
 ### Directory Structure
 
-The file system can be thought of as un upside down tree, with the root (signified by / )at the top and then a hierachical arrangement of directories and files beneath.
-
-When we talk about **absolute paths** that refers to the address of where you, or the thing you are looking for, is in that hierachy.  In the above example the absolute path for the file sequence.fasta would be:
+The file system can be thought of, diagramatically, as un upside down tree with the root (signified by `/` ) at the top and a hierachical arrangement of directories and files beneath as the branches and leaves if we want to torture this metaphor further. 
 
 <img src="https://github.com/davidwcleary/AMGD/blob/main/file-system.png" width="150" height="150">
+
+Where any particular file or folder is located can be referred to by its' path. When we talk about **absolute path** this refers to the address of where you, or the thing you are looking for, is in that hierachy from the root. That is to say, starting at `/` what is the full path to the file.  In the above example the absolute path for the file sequence.fasta would be:
 
 > /home/data/sequence/sequence.fasta
 
 ## Basic Commands
 
-For the purposes of getting you started without having to worry about installing software we are going to make use of a fantastic free resource called at https://sandbox.bio/ Go to that address and click on the 'Command Line' Playground. You should now have a terminal window in your browser.
+For the purposes of getting  started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address and click on the 'Command Line' Playground. You should now have a terminal window in your browser thsat looks like the below.
 
 <img src="https://github.com/davidwcleary/AMGD/blob/main/Screenshot%202023-03-02%20at%2015.12.15.png">
 
-The first thing you might notice is the prompt **guest@sandbox$** this shows that the shell is ready and waiting for some form of command. In other terminals the prompt may look different but typically has **%** or **$** at the end. For ease all the example commands below will be shown from a prompt of **$**
+The first thing you might notice is the prompt **guest@sandbox$** this shows that the shell is ready and waiting for some form of command. In other terminals the prompt may look different, but typically has **%** or **$** at the end. For ease all the example commands we encounter will be shown from a prompt of **$**
 
 ### Where am I?
-First, where am I? To work this out we can use the Path to Working Directory command `pwd`. This command will return the absolute path to where you are. 
+First, where am I? Always a useful starting point. To work this out we can use our very first command. The Path to Working Directory command `pwd`. This command will return the absolute path to where you are. 
 
 ```shell
 $ pwd
@@ -51,14 +53,14 @@ $ ls
 tutorials 
 ```
 
-It's worth noting that for this command, and indeed all of those I am going to introduce you to, you can get more information by typing `man` (manual):
+It's worth noting that for this command, and indeed all of those I am going to introduce you to, you can get more information by typing `man` (for manual) followed by the command name. For example:
 
 ```shell
 $ man ls
 ```
-In this sandbox environment the manual will be shown completely on screen. In other terminals you may get an interactive page, which you can scroll down using the spacebar. In that situation, to quit the manual simply press **Q**.
+In this environment the manual will be shown completely on screen. In other terminals you may get an interactive page which you can scroll down using the spacebar. In that situation, to quit the manual simply press **q**.
 
-Ok, back to listing directory contents. Sometimes  you might want to know more about the files/directories that are present.  This is where we can use **flags**.  Think of these as extra bits of command you can pass to, in this case, the command `ls`.  Here we have an example of -l or long listing. In this case we get a lot more information: 
+Ok, back to listing directory contents. Sometimes you might want to know more about the files/directories that are present in that directory.  This is where we can use **flags**. Think of these as extra bits of command you can pass to the command, in this case `ls`.  Here we have an example of `-l` which denotes long listing. By using this flag we get a lot more information: 
 
 ```shell
 $ ls -l
@@ -66,9 +68,11 @@ total 1
 drwxrwxrwx 1 0 0 4096 Mar  2 10:45 tutorials
 ```
 
-The third line begins with an overview of who has which permissions for, in this case, the directory **tutorials**. What then follows is information about ownership, file size (note this is a folder but the folder size is not what is being displayed here - more on that later), date and time last modified and finally the name.
+Let's briefly go through the output. 
 
-Now try the following and see if you can work out what the flags -t -r and -h are doing.
+The third line begins with an overview of who has which permissions for the directory **tutorials**. What then follows is information about ownership, file size (note this is a folder but the folder size is not what is being displayed here - more on that later), date and time last modified and finally the name.
+
+Most commands have a multitude of flags, all listed in the manual and all enabling the command to work in slightly different ways. Try the following and see if you can work out what the flags -t -r and -h are doing.
 
 ```shell
 $ ls -ltrh
@@ -81,7 +85,7 @@ To move around the directory structure we can use the Change Directory `cd` comm
 ```shell
 $ cd tutorials/
 ```
-Listing contents with `ls` shows us another directory so let's go ahead and move into that one...
+Listing contents with `ls` shows us another directory called terminal-basics so let's go ahead and move into that one...
 
 ```shell
 $ ls
@@ -99,7 +103,7 @@ total 14
 -rw-rw-rw- 1 0 0     45 Mar  2 10:45 ref.fa.bak
 ```
 
-Now we have some files to play with, but first let's look at some important flags for `cd`
+Now we have some files to play with, however first let's look at some important flags for `cd`. As you might imagine change directory is a very vague command and therefore comes with useful add-ons:
 
 ```shell
 $ cd .
@@ -109,18 +113,18 @@ The . here denotes current directory
 ```shell
 $ cd ..
 ```
-.. means 'up one' or 'Parent' directory level
+.. means 'up one' or 'Parent' directory level. You don't need to name the destination, simply typing this will send you up one level.
 
 ```shell
 $ cd ../someotherplace
 ```
-from where you can then go across into 'someotherplace' (providing it exists). Of course here `cd ../../` equates to two levels `cd ../../../` three etc. 
+You can add on further destinations to make life easier. In this example you are going one up and then down into another folder called 'someotherplace' (providing it exists). It should be no surprise that `cd ../../` equates to two levels `cd ../../../` three etc etc.
 
 ```shell
 $ cd ~
 ```
 
-As the saying goes, there's no place like home. If you're lost this is always a good one to know, and you can always check where you end up by returning to our very first command `pwd`
+As the saying goes, there's no place like home `~`. If you're lost this is always a good one to know, and you can always check where you end up by returning to our very first command `pwd`.
 
 While we are here let's make our own directory and move into it.  We do this by using the MaKe DIRectory command `mkdir` followed by the name of the directory we want to create.  This is probably a good time to highlight the importance of file/folder naming convention. General rules:
 
@@ -128,38 +132,40 @@ While we are here let's make our own directory and move into it.  We do this by 
   * Dates help a lot 2023-03-02-myfile.txt.
   * No special characters as they get interpreted very differently on the command line to how you would read them.
 
-Now back to `mkdir`. Let's check we are in `/shared/data/tutorials/terminal-basics` make a folder called **test-folder** check it is there and then move into it.
+Now back to `mkdir`. Let's check we are in `/shared/data/tutorials/terminal-basics` make a folder called **test-folder** check it is there and then move into it. The commands you will need to do this are as follows:
 
 ```shell
+$ pwd
 $ mkdir test-folder
 $ ls
 $ cd test-folder
-$ pwd
 ```
 
 ### Copying Files
 
-Now we are in our brand new folder let's put something in it. Let's copy a file from `/shared/data/tutorials/terminal-basics`. To do these we use `cp` as follows:
+Now we are in our brand new folder let's put something in it. Let's copy a file from `/shared/data/tutorials/terminal-basics` so that we having something to play with. To do these we use `cp` as follows:
 
 ```shell
 $ cp ../orders.tsv .
 ```
 
-Now there are a few elements we are bringing together here. The first is that I am telling `cp` that the file I want to copy is one level up `../` called orders.tsv and I want to copy it to where I am `.`. I could specify the absolute path to the file using /shared/data/tutorials/terminal-basics/orders.tsv but typing can be boring and where there is safe shortcut we should try and use it.
+Now there are a few elements we are bringing together here. The first is that I am telling `cp` that the file I want to copy is one level up `../` called **orders.tsv** and I want to copy it to where I am `.`. I could specify the absolute path to the file using **/shared/data/tutorials/terminal-basics/orders.tsv** but typing can be boring and where there is safe shortcut we should try and use it.
 
-> Have you tried autocompleting with TAB yet? I'll let you find that joy all by yourself.
+> Have you tried autocompleting with **TAB** yet? I'll let you find that joy all by yourself.
 
-Back to our file we have just copied across. Check it is there using `ls` and to avoid confusion, let's rename. This command to do this is `mv`.  There are `rename` commands but `mv` does what we need very nicely. Remember to alwasys check that what happens is what you intended!
+Back to our file we have just copied across. Check it is there using `ls` and to avoid confusion, let's rename it. The command to do this is `mv`.  There are `rename` commands but `mv` does what we need very nicely. Remember to always check that what happens is what you intended!
 
 ```shell
 $ mv orders.tsv orders-copy.tsv
 ```
 
+This is simply telling `mv` to change the name from **orders.tsv** to **orders-copy.tsv**.  Note that the order of FROM TO is imporant here.
+
 ### Viewing Files
 
-There are a number of ways to view files. My preferred method for having a sneaky peak is `less` followed by the file name. There is also a similar command called `more`. Neither of these are available in this sandbox but never mind as we have `head`, `tail`, and `cat`.  Let's use these to look at our orders-copy.tsv.
+There are a number of ways to view the contents of files. My preferred method for having a sneaky peak is `less` followed by the file name. There is also a similar command called `more`. Neither of these are available in this sandbox unfortunately but it's not a problem as we have `head`, `tail`, and `cat`.  Let's use these to look at our orders-copy.tsv.
 
-`head` as you imagine shows you, by default the first 10 lines of the file.  This default behaviour can be changed by using the `-n` flag and asking for the number of lines you want to see.  Similarily `tail` does exactly the same but from the bottom. 
+`head`, as you may imagine shows you the top or HEAD of the file by printing this to the terminal window and then returning a prompt ready for the next command. By default, and most commands have a default behaviour, it shows the first 10 lines only.  This default behaviour can be changed by using the `-n` flag and asking for the number of lines you want to see.  Similarily `tail` does exactly the same but from the BOTTOM. 
 
 ```shell
 $ head orders-copy.tsv 
@@ -189,8 +195,7 @@ $ tail -n 5 orders-copy.tsv
 1834    1       Chicken Salad Bowl
 ```
 
-`cat` on the other hand will show you everything...REGARDLESS OF HOW BIG YOUR FILE IS!! So how would you know how many lines are in your file to avoid an ever scrolling terminal window.  Here we can use `wc` literally ***word count***
-
+`cat` on the other hand will show you everything...REGARDLESS OF HOW BIG YOUR FILE IS!! So how would you know how many lines or characters are in your file to avoid an ever scrolling terminal screen.  Here we can use `wc` literally ***word count*** to find out.  Let's use `man wc` to look first at the default behaviour.
 
 ```shell
 $ man wc
@@ -215,19 +220,19 @@ Ok so what the manual is telling us is that if we just use `wc` without any extr
 $ wc -l orders-copy.tsv 
 4623 orders-copy.tsv
 ```
-So now we know. There are just over 4600 lines in our file. Are we really interested in all of it? If not, how can we extract the information we need. Onwards to manipulating files.
+So now we know. There are just over 4600 lines in our file. Are we really interested in all of it? If not, how can we extract only information we need. Onwards to manipulating files!
 
 ### Manipulating Files
 
-Here's a question. orders-copy.tsv is a tab sepated text file (.tsv) that contains individual orders from my restaurant. Problem is that this information just is not that helpful. I want to know what the most popular Burrito dish is but I don't want to trawl through 4000-odd orders and manually count them.  What can I do? Bash to the rescue, and more specifically pipes or `|` as they are shown.  Pipes allow me to take one command and pass the output of that into another command. Let's see how this might work in practise.
+Here's a question. orders-copy.tsv is a tab sepated text file (.tsv) that contains individual orders from a restaurant. The problem is that this information just is not that helpful in it's current form. Let's say that all I really want to know is what is the most popular Burrito dish. The last thing I want to do is trawl through 4000-odd orders and manually count them.  What can I do instead? Bash to the rescue, and more specifically pipes or `|` as they are shown. Pipes allow me to take one command and pass the output of that into another command. Let's see how this might work in practise.
 
-The first thing is to get the contents of my file and for this I know I can use the `cat` but what I really want is just teh third column, the one with all the food listed.  Here I will use `cut` with `-f` to specify which field I want, in this case number 3.
+The first thing is to get the contents of my file and for this I know I can use `cat` but what I really want is just the third column of my file, the one with the food listed. Here I will use `cut` with `-f` to specify which field (column) I want to extract, in this case column number 3.
 
 $ cat orders-copy.tsv | cut -f 3
 
-That still leaves me with all the dishes I am not interested in though. 
+Of course that still leaves me with all the dishes, and I am still only interested in Burritos. 
 
-Now I can use `grep`. There is no time to go through the complexities of grep except to say it stands for **get regular expression** and is a incredibly useful tool for searching and finding.  Here I want to tell grep to search the ouput of the `cut` command for "Burrito", making sure it's not case sensitive by also using the `-i` flag.
+Now I can employ the power of `grep`. There is no time to go through the complexities of `grep` except to say it stands for **get regular expression** and is a incredibly useful tool for searching and finding.  Here I want to tell `grep` to search the ouput of the `cut` command for patterns (expressions) which match "Burrito". Whilst I am at it I can make sure my search is not case sensitive by also using the `-i` flag.
 
 ```shell 
 $ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" 
@@ -243,10 +248,12 @@ Steak Burrito
 Steak Burrito
 ```
 
-Great, that's looking better. The problem I have now though is that my counting command requires all things to be counted as the same next to each other i.e., steak, chicken, steak will not return two steaks but one of each. So what I need to do first is `sort` by name and then group (or in other words identify all the unique dish names) and count how many are in each group.  I do all of this by adding `| sort | uniq -c `
+Great, that's looking better. Now I just need to generate a count table. 
+
+Here I run into a little problem. My counting command requires all things Burrito that need to be grouped together and counted (i.e., steak, chicken etc) need to be next to each other in the listed. In other words sorted. If I tried to count as it is and had for example steak, chicken, steak I will not get  steak x2 and chicken x1 but steak x1, chicken x1 and steak x 1. So what I need to do first is `sort` by name and then group (or in other words identify all the unique dish names) and count how many are in each group.  I do all of this by adding `| sort | uniq -c ` to the end of my command.
 
 ```shell 
-$ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" | sort| uniq -c
+$ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" | sort | uniq -c
      91 Barbacoa Burrito
       6 Burrito
      59 Carnitas Burrito
@@ -255,22 +262,41 @@ $ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" | sort| uniq -c
      95 Veggie Burrito
 ```
 
-Much better! Now to sort numerically by column 1 using `|sort -k1n` and there we have it, chicken burritos are the most popular dish. But hang on. Do I need to do this ever time I want to find this information out? What if I forget, or I want to find third most popular dish. Easy.  Let's just redirect the output of this one line of Bash into a new file...just like so.
+Much better! Now to sort numerically by column 1 using `| sort -k1n` 
 
+```shell
+$ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" | sort | uniq -c | sort -k1n
+      6 Burrito
+     59 Carnitas Burrito
+     91 Barbacoa Burrito
+     95 Veggie Burrito
+    368 Steak Burrito
+    553 Chicken Burrito
+``` 
+
+And there we have it. Chicken burritos are the most popular dish. 
+
+But hang on. Do I need to do this every time I want to find this information? What if I forget? Or I want to find third most popular dish? Easy. Let's just redirect the output of this one line of Bash into a new file...just like so.
 
 ```shell 
-$ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" | sort| uniq -c > burritos.tsv
+$ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" | sort | uniq -c > burritos.tsv
 ```
 
-et voila we have a new file that will contain all the information we need for as long as we need it. The best part about all of this? Look at the original file and you will see that nothing has happened to it, it's exactly as it was to begin with.
+et voila, we have a new file that will contain all the information we collated for as long as we need it. 
 
-Ok, I hear you say but I want to look at Tacos as well, and I want that information in with the Burrito numbers I've worked so hard to get. No problem I say. Let's just repeat the above and this time **append** our burrito file.
+The best part about all of this? Look at the original file. Has anything changed? 
+
+Ok that's all very clever I hear you say. But what I really want is to look at Tacos AS WELL. I also want that information in the same file as the Burrito numbers. No problem I say. Let's just repeat the above, using "Taco" as our search term instead of "Burrito" and  **append** our burrito file with the output of this new command.
 
 ```shell 
-$ cat orders-copy.tsv | cut -f 3 | grep -i "Taco" | sort| uniq -c >> burritos.tsv
+$ cat orders-copy.tsv | cut -f 3 | grep -i "Taco" | sort | uniq -c >> burritos.tsv
 ```
 
-Did you spot it? The ABSOLUTELY CRITICAL difference `>>` instead of `>`?  I had used the latter my output from the Taco search would simply have overwritten the burritos.  By using `>>` I make sure to add the new data to the end of the first file.
+Did you spot it? The ABSOLUTELY CRITICAL difference. This time we used `>>` instead of `>`. If I had used the latter my output from the Taco search would simply have overwritten the Burrito data.  By using `>>` I make sure to add the new data to the end of the first file.
+
+## Activity
+
+***Using the commands you have been introduced to let me know whether salad or salsa is the most popular side dish.***
 
 Let's finish with the `rm` command, or remove. To get rid of burritos.tsv you can type
 
@@ -280,15 +306,17 @@ $ rm burritos.tsv
 
 Be warned however, there is no recycle bin, no undo, no amount of swearing, praying or IT support that can bring a file back once it has been subjected to `rm`.  This goes for folder, sub-folders and operating systems.  There is a command that I will not spell out here that it used whilst in `/` will wipe out everything in your computer before your very eyes. So, make sure you know what it is you are deleting.
 
-## Other Useful Commands
+## Other Useful Commands / Information
 
 These are some that also come in useful. I'll continue to populate as I think of them. There is also a Terminal Basics tutorial at the same sandbox, do feel free to work through that as well...it shouldn't take you long.
 
 * If your screen is looking terribly confusing, then have a good clear out with `clear`
 * Can't remember what you did, use `history` to bring up a list of previously used commands. How many it returns can be altered in terminal preferences.
+* If a command is running for longer than you think it should ctrl-c will kill it and return a prompt.
+* In addition to man (command) most commands also come with help that can be accessed by `-h` or `--help`
+* I mentioned **absolute paths** at the very start - the location of a file or folder from `/`.  We did cover **relative path** but did not explicitly say that's what it was. This would be when you use `../` for example to begin your journey to another destination from where you are rather than from the root.
+
 
 ## Summary
 
 By now you will hopefully have recognised the simple power of Bash. This is the tip, of the tip of the iceberg of what it can do for you. I hope this leaves you inspired and keen to learn more. Good luck with the journey. 
-
-
