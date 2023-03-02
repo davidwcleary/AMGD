@@ -5,7 +5,6 @@ Welcome to the command line basics tutorial for the Analysing Microbial Genomic 
 
 The following short guide is designed purely to demystify the command line, introducing course participants to the very basics of the environment, as well as some simple commands to navigate, find, view and edit files using Bash.
 
-
 ## UNIX
 
 So, what is Unix? Unix is an operating system that was developed in the 1960s. For us bioinformaticians it is particularly important as it provides a means to perform operations on our computers when there is no Graphical User Interface (GUI). This is very common for programs and tools developing for analysing sequence data. It's worth knowing that there are differnt versions of Unix. Some of you may have heard of Linux for example. This is a family of open-source Unix-like operating systems based on the Linux kernel, an operating system developed and released by Linus (hence the name) Torvalds in the early 90's. At this point there is no need to go further down this particular rabbit hole.
@@ -43,7 +42,6 @@ $ pwd
 In this case it will return:
 
 > /shared/data
-
 
 ### What is here?
 Now let us have a look at what is here in this folder called **data**.  Here we can use the `ls` (list) command. Here we see we have another directory called **tutorials**.
@@ -294,10 +292,6 @@ $ cat orders-copy.tsv | cut -f 3 | grep -i "Taco" | sort | uniq -c >> burritos.t
 
 Did you spot it? The ABSOLUTELY CRITICAL difference. This time we used `>>` instead of `>`. If I had used the latter my output from the Taco search would simply have overwritten the Burrito data.  By using `>>` I make sure to add the new data to the end of the first file.
 
-## Activity
-
-***Using the commands you have been introduced to let me know whether salad or salsa is the most popular side dish.***
-
 Let's finish with the `rm` command, or remove. To get rid of burritos.tsv you can type
 
 ```shell 
@@ -305,6 +299,10 @@ $ rm burritos.tsv
 ```
 
 Be warned however, there is no recycle bin, no undo, no amount of swearing, praying or IT support that can bring a file back once it has been subjected to `rm`.  This goes for folder, sub-folders and operating systems.  There is a command that I will not spell out here that it used whilst in `/` will wipe out everything in your computer before your very eyes. So, make sure you know what it is you are deleting.
+
+## Activity
+
+***Using the commands you have been introduced to let me know whether salad or salsa is the most popular side dish.***
 
 ## Other Useful Commands / Information
 
@@ -314,8 +312,7 @@ These are some that also come in useful. I'll continue to populate as I think of
 * Can't remember what you did, use `history` to bring up a list of previously used commands. How many it returns can be altered in terminal preferences.
 * If a command is running for longer than you think it should ctrl-c will kill it and return a prompt.
 * In addition to man (command) most commands also come with help that can be accessed by `-h` or `--help`
-* I mentioned **absolute paths** at the very start - the location of a file or folder from `/`.  We did cover **relative path** but did not explicitly say that's what it was. This would be when you use `../` for example to begin your journey to another destination from where you are rather than from the root.
-
+* I mentioned **absolute path** at the very start - the location of a file or folder from `/`.  We did cover **relative path** but did not explicitly say that's what it was. This would be when you use `../`, for example, to begin your journey to another destination from where you are rather than from the root.
 
 ## Summary
 
