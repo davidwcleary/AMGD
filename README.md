@@ -28,7 +28,10 @@ When we talk about **absolute paths** that refers to the address of where you, o
 ## Basic Commands
 
 Ok, let's assume you have a terminal window and what you should see is some form of prompt, typically **%** or **$**. 
-Now let's start having a look around in the https://sandbox.bio/ Command Line playground. 
+
+Now let's start having a look around in the https://sandbox.bio/ Command Line playground. As you can see the prompt here is **guest@sandbox$** but for ease all the example commands will be shown as **$**
+
+<img src="https://github.com/davidwcleary/AMGD/blob/main/Screenshot%202023-03-02%20at%2015.12.15.png">
 
 ### Where am I?
 First, where am I? To work this out we can use the Path to Working Directory command `pwd`. This command will return the absolute path to where you are. 
