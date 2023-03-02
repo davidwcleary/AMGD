@@ -1,5 +1,7 @@
-Welcome to the command line basics tutorial for the Analysing Microbial Genomic Data course.
+Welcome to the command line basics guide for the Analysing Microbial Genomic Data course.
 
 The following short guide is designed to demystify the command line, introducing course participants to the very basics of the environment, as well as simple commands to navigate, find, view and edit files using simple Bash commands.
 
+Firstly complete the Terminal Basics tutorial at https://sandbox.bio/
+This will be an excellent starting point.  Once you've completed that go to 'Command Line' Playground at the same address.  Here you can use the commands I will introduce you to and have a bit of a play. 
 
