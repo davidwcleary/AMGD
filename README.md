@@ -5,7 +5,6 @@ Welcome to the command line basics tutorial for the Analysing Microbial Genomic 
 
 The following short guide is designed to demystify the UNIX command line, introducing course participants to the very basics of the environment, as well as simple commands to navigate, find, view and edit files using simple Bash commands.
 
-Firstly, please complete the Terminal Basics tutorial at https://sandbox.bio/ This will be an excellent starting point. Once you've completed that go to 'Command Line' Playground at the same address. Here you can use the commands which I will introduce you to and have a bit of a play. 
 
 ## UNIX
 
@@ -27,11 +26,11 @@ When we talk about **absolute paths** that refers to the address of where you, o
 
 ## Basic Commands
 
-Ok, let's assume you have a terminal window and what you should see is some form of prompt, typically **%** or **$**. 
-
-Now let's start having a look around in the https://sandbox.bio/ Command Line playground. As you can see the prompt here is **guest@sandbox$** but for ease all the example commands will be shown as **$**
+For the purposes of getting you started without having to worry about installing software we are going to make use of a fantastic free resource called at https://sandbox.bio/ Go to that address and click on the 'Command Line' Playground. You should now have a terminal window in your browser.
 
 <img src="https://github.com/davidwcleary/AMGD/blob/main/Screenshot%202023-03-02%20at%2015.12.15.png">
+
+The first thing you might notice is the prompt **guest@sandbox$** this shows that the shell is ready and waiting for some form of command. In other terminals the prompt may look different but typically has **%** or **$** at the end. For ease all the example commands below will be shown from a prompt of **$**
 
 ### Where am I?
 First, where am I? To work this out we can use the Path to Working Directory command `pwd`. This command will return the absolute path to where you are. 
@@ -75,7 +74,7 @@ Now try the following and see if you can work out what the flags -t -r and -h ar
 $ ls -ltrh
 ```
 
-### Changing Directory and Making a New One
+### Changing Directory and Making a New Directory
 
 To move around the directory structure we can use the Change Directory `cd` command.  
 
@@ -283,7 +282,7 @@ Be warned however, there is no recycle bin, no undo, no amount of swearing, pray
 
 ## Other Useful Commands
 
-These are some that also come in useful. I'll continue to populate as I think of them,
+These are some that also come in useful. I'll continue to populate as I think of them. There is also a Terminal Basics tutorial at the same sandbox, do feel free to work through that as well...it shouldn't take you long.
 
 * If your screen is looking terribly confusing, then have a good clear out with `clear`
 * Can't remember what you did, use `history` to bring up a list of previously used commands. How many it returns can be altered in terminal preferences.
