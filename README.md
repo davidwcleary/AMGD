@@ -5,7 +5,7 @@ Welcome to the command line basics tutorial for the Analysing Microbial Genomic 
 
 The following short guide is designed to demystify the UNIX command line, introducing course participants to the very basics of the environment, as well as simple commands to navigate, find, view and edit files using simple Bash commands.
 
-Firstly complete the Terminal Basics tutorial at https://sandbox.bio/ This will be an excellent starting point.  Once you've completed that go to 'Command Line' Playground at the same address. Here you can use the commands I will introduce you to and have a bit of a play. 
+Firstly, please complete the Terminal Basics tutorial at https://sandbox.bio/ This will be an excellent starting point. Once you've completed that go to 'Command Line' Playground at the same address. Here you can use the commands which I will introduce you to and have a bit of a play. 
 
 ### UNIX
 
@@ -13,7 +13,7 @@ So, What is Unix? Unix is an operating system developed in the 1960s. It provide
 
 The shell is the interface between you and the kernel, the bit that is actually doing all the work.  You may have come across BASH.  This is the Bourne-Again Shell. Bash is both a unix shell and command language and is/was the default shell for most unix operating systems. Those of us with new Macbooks will see our default shell is now Zsh (the Z-shell), which is an extended, improved Bash. Confused? Don't worry. These are the idiosyncracies that one learns over time.
 
-The important point is that the shell is the **command line interpreter** taking the commands you write and giving them what they need to run properly. 
+The important point is that the shell is the **command line interpreter** which takes the instructions (commands) that you write and gives them what they need to run. 
 
 ### Directory Structure
 
