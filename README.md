@@ -21,6 +21,8 @@ The file system can be thought of as un upside down tree, with the root (signifi
 
 When we talk about **absolute paths** that refers to the address of where you, or the thing you are looking for, is in that hierachy.  In the above example the absolute path for the file sequuence.fasta would be:
 
+[file-system] ()
+
 > /home/data/raw/sequence.fasta
 
 ### Basic Commands
