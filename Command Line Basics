@@ -5,3 +5,6 @@ The following short guide is designed to demystify the command line, introducing
 Firstly complete the Terminal Basics tutorial at https://sandbox.bio/
 This will be an excellent starting point.  Once you've completed that go to 'Command Line' Playground at the same address.  Here you can use the commands I will introduce you to and have a bit of a play. 
 
+```bash
+pwd
+```
