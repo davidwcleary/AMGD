@@ -19,9 +19,10 @@ The important point is that the shell is the **command line interpreter** taking
 
 The file system can be thought of as un upside down tree, with the root (signified by / )at the top and then a hierachical arrangement of directories and files beneath.
 
-When we talk about **absolute paths** that refers to the address of where you, or the thing you are looking for, is in that hierachy.  In the above example the absolute path for the file sequuence.fasta would be:
+When we talk about **absolute paths** that refers to the address of where you, or the thing you are looking for, is in that hierachy.  In the above example the absolute path for the file sequence.fasta would be:
 
-[file-system] ()
+[logo]: https://github.com/davidwcleary/AMGD/blob/main/file-system.png
+
 
 > /home/data/raw/sequence.fasta
 
