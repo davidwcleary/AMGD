@@ -1,4 +1,9 @@
 # Analysing Microbial Genomic Data
+
+<p align="center" width="100%">
+ <img src="https://github.com/davidwcleary/AMGD/blob/main/AMGD-Logo.png" width="400" height="400">
+</p>
+
 # Command Line Basics
 
 Welcome to the command line basics tutorial for the Analysing Microbial Genomic Data course run by the Institute of Microbiology and Infection, University of Birmingham.
