@@ -1,6 +1,11 @@
 # Analysing Microbial Genomic Data
 
 <p align="center" width="100%">
+ <img src="https://github.com/davidwcleary/AMGD/blob/main/AMGD Logo_dark.png" width="400" height="400">
+</p>
+
+
+<p align="center" width="100%">
  <img src="https://github.com/davidwcleary/AMGD/blob/main/AMGD-Logo.png" width="400" height="400">
 </p>
 
