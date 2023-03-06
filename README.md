@@ -32,7 +32,7 @@ Where any particular file or folder is located can be referred to by its' path. 
 
 ## Basic Commands
 
-For the purposes of getting  started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address and click on the 'Command Line' Playground. You should now have a terminal window in your browser thsat looks like the below.
+For the purposes of getting started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address and click on the 'Playgrounds' menu (top right) and select 'Command Line'. You should now have a terminal window in your browser that looks like the below.
 
 <img src="https://github.com/davidwcleary/AMGD/blob/main/Screenshot%202023-03-02%20at%2015.12.15.png">
 
@@ -61,7 +61,7 @@ In this case it will return:
 > /shared/data
 
 ### What is here?
-Now let us have a look at what is here in this folder called **data**.  Here we can use the `ls` (list) command. Here we see we have another directory called **tutorials**.
+Now let us have a look at what is here in this folder called **data**.  Here we can use the `ls` (list) command. Here we see we have another directory called **tutorials**. *If you don't see the directory 'tutorials', go back to the main sandbox page and click on 'Tutorials' and then select 'Terminal Basics'.  That will also bring up a terminal window.  Now click on 'Playgrounds', 'Command Line' and the directory shuold now.*
 
 ```shell
 $ ls 
@@ -279,6 +279,12 @@ $ wc -l orders-copy.tsv
 
 So now we know. There are just over 4600 lines in our file. Are we really interested in all of it? If not, how can we extract only information we need. Onwards to manipulating files!
 
+### What did I just type?
+
+So far we have used fairly easy, short commands, and not that many of them either. However, I guarantee you that at some point you will need to look at a previous command and/or run it again.  
+
+Here there are two very easy ways to do this. 1. you can simply use the up arrow key (^) whilst on a prompt ```$``` to scroll through in chronological order (most recent to oldest) the commands you have entered, or 2. you can make use of ```$ history```.  This command will bring up a numbered list of commands (the number varies and can be altered in terminal preferences).  To run a command from this list either stick to the old favourite of copy and paste or you can invoke that command in a number of ways e.g., ```!35``` to run number 35 for example (note this doesn't work in this sanbox environment). 
+
 ### Manipulating Files
 
 Here's a question. orders-copy.tsv is a tab sepated text file (.tsv) that contains individual orders from a restaurant. The problem is that this information just is not that helpful in it's current form. Let's say that all I really want to know is what is the most popular Burrito dish. The last thing I want to do is trawl through 4000-odd orders and manually count them.  What can I do instead? Bash to the rescue, and more specifically pipes or `|` as they are shown. Pipes allow me to take one command and pass the output of that into another command. Let's see how this might work in practise.
@@ -392,7 +398,6 @@ Be warned however, there is no recycle bin, no undo, no amount of swearing, pray
 These are some that also come in useful. I'll continue to populate as I think of them. There is also a Terminal Basics tutorial at the same sandbox, do feel free to work through that as well...it shouldn't take you long.
 
 * If your screen is looking terribly confusing, then have a good clear out with `clear`
-* Can't remember what you did, use `history` to bring up a list of previously used commands. How many it returns can be altered in terminal preferences.
 * If a command is running for longer than you think it should ctrl-c will kill it and return a prompt.
 * In addition to man (command) most commands also come with help that can be accessed by `-h` or `--help`
 * I mentioned **absolute path** at the very start - the location of a file or folder from `/`.  We did cover **relative path** but did not explicitly say that's what it was. This would be when you use `../`, for example, to begin your journey to another destination from where you are rather than from the root.
