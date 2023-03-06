@@ -46,8 +46,6 @@ $ some-command
 
 With the subsequent output shown as:
 
-***OUTPUT***
-
 > command output
 
 ### Where am I?
