@@ -38,6 +38,18 @@ For the purposes of getting  started without having to worry about installing so
 
 The first thing you might notice is the prompt **guest@sandbox$** this shows that the shell is ready and waiting for some form of command. In other terminals the prompt may look different, but typically has **%** or **$** at the end. For ease all the example commands we encounter will be shown from a prompt of **$**
 
+To make it clear, every command is shown as:
+
+```shell
+$ some-command
+```
+
+With the subsequent output shown as:
+
+***OUTPUT***
+
+> command output
+
 ### Where am I?
 First, where am I? Always a useful starting point. To work this out we can use our very first command. The Path to Working Directory command `pwd`. This command will return the absolute path to where you are. 
 
@@ -52,9 +64,10 @@ In this case it will return:
 Now let us have a look at what is here in this folder called **data**.  Here we can use the `ls` (list) command. Here we see we have another directory called **tutorials**.
 
 ```shell
-$ ls
-tutorials 
+$ ls 
 ```
+
+> tutorials
 
 It's worth noting that for this command, and indeed all of those I am going to introduce you to, you can get more information by typing `man` (for manual) followed by the command name. For example:
 
@@ -67,9 +80,11 @@ Ok, back to listing directory contents. Sometimes you might want to know more ab
 
 ```shell
 $ ls -l
-total 1
-drwxrwxrwx 1 0 0 4096 Mar  2 10:45 tutorials
 ```
+
+> total 1
+> 
+> drwxrwxrwx 1 0 0 4096 Mar  2 10:45 tutorials
 
 Let's briefly go through the output. 
 
@@ -92,19 +107,26 @@ Listing contents with `ls` shows us another directory called terminal-basics so 
 
 ```shell
 $ ls
-terminal-basics
 ```
+
+> terminal-basics
 
 ...and see what's there.
 
 ```shell
 $ cd terminal-basics/
-$ ls -l
-total 14
--rw-rw-rw- 1 0 0 105054 Mar  2 10:45 orders.tsv
--rw-rw-rw- 1 0 0     45 Mar  2 10:45 ref.fa
--rw-rw-rw- 1 0 0     45 Mar  2 10:45 ref.fa.bak
 ```
+```shell
+$ ls -l
+```
+
+> total 14
+> 
+> -rw-rw-rw- 1 0 0 105054 Mar  2 10:45 orders.tsv
+> 
+> -rw-rw-rw- 1 0 0     45 Mar  2 10:45 ref.fa
+> 
+> -rw-rw-rw- 1 0 0     45 Mar  2 10:45 ref.fa.bak
 
 Now we have some files to play with, however first let's look at some important flags for `cd`. As you might imagine change directory is a very vague command and therefore comes with useful add-ons:
 
@@ -139,8 +161,14 @@ Now back to `mkdir`. Let's check we are in `/shared/data/tutorials/terminal-basi
 
 ```shell
 $ pwd
+```
+```shell
 $ mkdir test-folder
+```
+```shell
 $ ls
+```
+```shell
 $ cd test-folder
 ```
 
@@ -154,7 +182,7 @@ $ cp ../orders.tsv .
 
 Now there are a few elements we are bringing together here. The first is that I am telling `cp` that the file I want to copy is one level up `../` called **orders.tsv** and I want to copy it to where I am `.`. I could specify the absolute path to the file using **/shared/data/tutorials/terminal-basics/orders.tsv** but typing can be boring and where there is safe shortcut we should try and use it.
 
-> Have you tried autocompleting with **TAB** yet? I'll let you find that joy all by yourself.
+Have you tried autocompleting with **TAB** yet? I'll let you find that joy all by yourself.
 
 Back to our file we have just copied across. Check it is there using `ls` and to avoid confusion, let's rename it. The command to do this is `mv`.  There are `rename` commands but `mv` does what we need very nicely. Remember to always check that what happens is what you intended!
 
@@ -172,31 +200,55 @@ There are a number of ways to view the contents of files. My preferred method fo
 
 ```shell
 $ head orders-copy.tsv 
-id      num     item_name
-1       1       Chips and Fresh Tomato Salsa
-1       1       Izze
-1       1       Nantucket Nectar
-1       1       Chips and Tomatillo-Green Chili Salsa
-2       2       Chicken Bowl
-3       1       Chicken Bowl
-3       1       Side of Chips
-4       1       Steak Burrito
-4       1       Steak Soft Tacos
-
-$ head -n 5 orders-copy.tsv 
-id      num     item_name
-1       1       Chips and Fresh Tomato Salsa
-1       1       Izze
-1       1       Nantucket Nectar
-1       1       Chips and Tomatillo-Green Chili Salsa
-
-$ tail -n 5 orders-copy.tsv 
-1833    1       Steak Burrito
-1833    1       Steak Burrito
-1834    1       Chicken Salad Bowl
-1834    1       Chicken Salad Bowl
-1834    1       Chicken Salad Bowl
 ```
+
+> id      num     item_name
+> 
+> 1       1       Chips and Fresh Tomato Salsa
+> 
+> 1       1       Izze
+> 
+> 1       1       Nantucket Nectar
+> 
+> 1       1       Chips and Tomatillo-Green Chili Salsa
+> 
+> 2       2       Chicken Bowl
+> 
+> 3       1       Chicken Bowl
+> 
+> 3       1       Side of Chips
+> 
+> 4       1       Steak Burrito
+> 
+> 4       1       Steak Soft Tacos
+
+```shell
+$ head -n 5 orders-copy.tsv 
+```
+
+> id      num     item_name
+> 
+> 1       1       Chips and Fresh Tomato Salsa
+> 
+> 1       1       Izze
+> 
+> 1       1       Nantucket Nectar
+> 
+> 1       1       Chips and Tomatillo-Green Chili Salsa
+
+```shell
+$ tail -n 5 orders-copy.tsv 
+```
+
+> 1833    1       Steak Burrito
+> 
+> 1833    1       Steak Burrito
+> 
+> 1834    1       Chicken Salad Bowl
+> 
+> 1834    1       Chicken Salad Bowl
+> 
+> 1834    1       Chicken Salad Bowl
 
 `cat` on the other hand will show you everything...REGARDLESS OF HOW BIG YOUR FILE IS!! So how would you know how many lines or characters are in your file to avoid an ever scrolling terminal screen.  Here we can use `wc` literally ***word count*** to find out.  Let's use `man wc` to look first at the default behaviour.
 
@@ -221,8 +273,10 @@ Ok so what the manual is telling us is that if we just use `wc` without any extr
 
 ```shell 
 $ wc -l orders-copy.tsv 
-4623 orders-copy.tsv
 ```
+
+> 4623 orders-copy.tsv
+
 So now we know. There are just over 4600 lines in our file. Are we really interested in all of it? If not, how can we extract only information we need. Onwards to manipulating files!
 
 ### Manipulating Files
@@ -231,7 +285,9 @@ Here's a question. orders-copy.tsv is a tab sepated text file (.tsv) that contai
 
 The first thing is to get the contents of my file and for this I know I can use `cat` but what I really want is just the third column of my file, the one with the food listed. Here I will use `cut` with `-f` to specify which field (column) I want to extract, in this case column number 3.
 
+```shell
 $ cat orders-copy.tsv | cut -f 3
+```
 
 Of course that still leaves me with all the dishes, and I am still only interested in Burritos. 
 
@@ -239,17 +295,27 @@ Now I can employ the power of `grep`. There is no time to go through the complex
 
 ```shell 
 $ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" 
-Steak Burrito
-Steak Burrito
-Chicken Burrito
-Chicken Burrito
-Barbacoa Burrito
-Chicken Burrito
-Carnitas Burrito
-Chicken Burrito
-Steak Burrito
-Steak Burrito
 ```
+
+> Steak Burrito
+> 
+> Steak Burrito
+> 
+> Chicken Burrito
+> 
+> Chicken Burrito
+> 
+> Barbacoa Burrito
+> 
+> Chicken Burrito
+> 
+> Carnitas Burrito
+> 
+> Chicken Burrito
+> 
+> Steak Burrito
+> 
+> Steak Burrito
 
 Great, that's looking better. Now I just need to generate a count table. 
 
@@ -257,25 +323,37 @@ Here I run into a little problem. My counting command requires all things Burrit
 
 ```shell 
 $ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" | sort | uniq -c
-     91 Barbacoa Burrito
-      6 Burrito
-     59 Carnitas Burrito
-    553 Chicken Burrito
-    368 Steak Burrito
-     95 Veggie Burrito
 ```
+
+> 91 Barbacoa Burrito
+> 
+> 6 Burrito
+> 
+> 59 Carnitas Burrito
+> 
+> 553 Chicken Burrito
+> 
+> 368 Steak Burrito
+> 
+> 95 Veggie Burrito
 
 Much better! Now to sort numerically by column 1 using `| sort -k1n` 
 
 ```shell
 $ cat orders-copy.tsv | cut -f 3 | grep -i "Burrito" | sort | uniq -c | sort -k1n
-      6 Burrito
-     59 Carnitas Burrito
-     91 Barbacoa Burrito
-     95 Veggie Burrito
-    368 Steak Burrito
-    553 Chicken Burrito
-``` 
+```
+
+> 6 Burrito
+> 
+> 59 Carnitas Burrito
+> 
+> 91 Barbacoa Burrito
+> 
+> 95 Veggie Burrito   
+> 
+> 368 Steak Burrito
+> 
+> 553 Chicken Burrito 
 
 And there we have it. Chicken burritos are the most popular dish. 
 
