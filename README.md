@@ -59,7 +59,7 @@ In this case it will return:
 > /shared/data
 
 ### What is here?
-Now let us have a look at what is here in this folder called **data**.  Here we can use the `ls` (list) command. Here we see we have another directory called **tutorials**. *If you don't see the directory 'tutorials', go back to the main sandbox page and click on 'Tutorials' and then select 'Terminal Basics'.  That will also bring up a terminal window.  Now click on 'Playgrounds', 'Command Line' and the directory shuold now.*
+Now let us have a look at what is here in this folder called **data**.  Here we can use the `ls` (list) command. Here we see we have another directory called **tutorials**. *If you don't see the directory 'tutorials', go back to the main sandbox page and click on 'Tutorials' and then select 'Terminal Basics'.  That will also bring up a terminal window.  Now click on 'Playgrounds', 'Command Line' and the directory should now be there.*
 
 ```shell
 $ ls 
