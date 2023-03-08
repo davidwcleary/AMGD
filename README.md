@@ -402,4 +402,4 @@ These are some that also come in useful. I'll continue to populate as I think of
 
 ## Summary
 
-By now you will hopefully have recognised the simple power of Bash. This is the tip, of the tip of the iceberg of what it can do for you. I hope this leaves you inspired and keen to learn more. Good luck with the journey. 
+By now you will hopefully have recognised the simple power of Bash. This is the tip of the tip of the iceberg of what it can do for you. I hope this leaves you inspired and keen to learn more. Good luck with the journey. 
