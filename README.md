@@ -34,7 +34,7 @@ Where any particular file or folder is located can be referred to by its' path. 
 
 For the purposes of getting started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address and click on the 'Start' 'Terminal Basics'. You should now have a terminal window in your browser that looks like the below.
 
-<img src="https://github.com/davidwcleary/AMGD/blob/main/Screenshot%2024-06-20at%2015.10.00.png">
+<img src="https://github.com/davidwcleary/AMGD/blob/main/Screenshot%2024-06-20%at%15.10.00.png">
 
 The first thing you might notice is the prompt **root@localhost:~/tutorial#** this shows that the shell is ready and waiting for some form of command. In other terminals the prompt may look different, but typically has **%** or **$** at the end. For ease all the example commands we encounter will be shown from a prompt of **$**
 
