@@ -32,11 +32,11 @@ Where any particular file or folder is located can be referred to by its' path. 
 
 ## Basic Commands
 
-For the purposes of getting started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address and click on the 'Playgrounds' menu (top right) and select 'Command Line'. You should now have a terminal window in your browser that looks like the below.
+For the purposes of getting started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address and click on the 'Start' 'Terminal Basics'. You should now have a terminal window in your browser that looks like the below.
 
 <img src="https://github.com/davidwcleary/AMGD/blob/main/Screenshot%202023-03-02%20at%2015.12.15.png">
 
-The first thing you might notice is the prompt **guest@sandbox$** this shows that the shell is ready and waiting for some form of command. In other terminals the prompt may look different, but typically has **%** or **$** at the end. For ease all the example commands we encounter will be shown from a prompt of **$**
+The first thing you might notice is the prompt **root@localhost:~/tutorial#** this shows that the shell is ready and waiting for some form of command. In other terminals the prompt may look different, but typically has **%** or **$** at the end. For ease all the example commands we encounter will be shown from a prompt of **$**
 
 To make it clear, every command is shown as:
 
@@ -56,16 +56,16 @@ $ pwd
 ```
 In this case it will return:
 
-> /shared/data
+> /root/tutorial
 
 ### What is here?
-Now let us have a look at what is here in this folder called **data**.  Here we can use the `ls` (list) command. Here we see we have another directory called **tutorials**. *If you don't see the directory 'tutorials', go back to the main sandbox page and click on 'Tutorials' and then select 'Terminal Basics'.  That will also bring up a terminal window.  Now click on 'Playgrounds', 'Command Line' and the directory should now be there.*
+Now let us have a look at what is here in this folder called **tutorial**.  Here we can use the `ls` (list) command. Here we see we have three files called **orders.tsv** **ref.fa** and **ref.fa.bak**. 
 
 ```shell
 $ ls 
 ```
 
-> tutorials
+> orders.tsv  ref.fa  ref.fa.bak
 
 It's worth noting that for this command, and indeed all of those I am going to introduce you to, you can get more information by typing `man` (for manual) followed by the command name. For example:
 
@@ -80,13 +80,19 @@ Ok, back to listing directory contents. Sometimes you might want to know more ab
 $ ls -l
 ```
 
-> total 1
+> total 118
 > 
-> drwxrwxrwx 1 0 0 4096 Mar  2 10:45 tutorials
+> -rw-r--r-- 1 root root 105054 Jun 20  2024  orders.tsv
+>
+> -rw-r--r-- 1 root root     45 Jun 20  2024  ref.fa
+>
+> -rw-r--r-- 1 root root     45 Jun 20  2024  ref.fa.bak
+>
+> -rw-r--r-- 1 root root  13400 Jun 20  2024 'tty rows 40 cols 35'
 
 Let's briefly go through the output. 
 
-The third line begins with an overview of who has which permissions for the directory **tutorials**. What then follows is information about ownership, file size (note this is a folder but the folder size is not what is being displayed here - more on that later), date and time last modified and finally the name.
+The line begins with an overview of who has which permissions for the file **order.tsv**. What then follows is information about ownership, file size, date and time last modified and finally the name.
 
 Most commands have a multitude of flags, all listed in the manual and all enabling the command to work in slightly different ways. Try the following and see if you can work out what the flags -t -r and -h are doing.
 
@@ -94,39 +100,45 @@ Most commands have a multitude of flags, all listed in the manual and all enabli
 $ ls -ltrh
 ```
 
-### Changing Directory and Making a New Directory
+### Making a New Directory and Moving Around
+
+While we are here let's make our own directory and move into it.  We do this by using the MaKe DIRectory command `mkdir` followed by the name of the directory we want to create.  This is probably a good time to highlight the importance of file/folder naming convention. General rules:
+
+  * Do not include spaces! my-file.txt or my-folder or my_folder NEVER my file.txt.
+  * Dates help a lot 2023-03-02-myfile.txt.
+  * No special characters as they get interpreted very differently on the command line to how you would read them.
+
+Now back to `mkdir`. Let's check we are in `/root/tutorial` make a folder called **test-folder** check it is there and then move into it. The commands you will need to do this are as follows:
+
+```shell
+$ pwd
+```
+```shell
+$ mkdir test-folder
+```
+```shell
+$ ls -ltrh
+```
+
+> total 118K
+> 
+> -rw-r--r-- 1 root root 105054 Jun 20  2024  orders.tsv
+>
+> -rw-r--r-- 1 root root     45 Jun 20  2024  ref.fa
+>
+> -rw-r--r-- 1 root root     45 Jun 20  2024  ref.fa.bak
+>
+> -rw-r--r-- 1 root root  13400 Jun 20  2024 'tty rows 40 cols 35'
+>
+> drwxr-xr-x 2 root root    0 Jun 20  2024  test-folder
 
 To move around the directory structure we can use the Change Directory `cd` command.  
 
 ```shell
-$ cd tutorials/
-```
-Listing contents with `ls` shows us another directory called terminal-basics so let's go ahead and move into that one...
-
-```shell
-$ ls
+$ cd test-folder/
 ```
 
-> terminal-basics
-
-...and see what's there.
-
-```shell
-$ cd terminal-basics/
-```
-```shell
-$ ls -l
-```
-
-> total 14
-> 
-> -rw-rw-rw- 1 0 0 105054 Mar  2 10:45 orders.tsv
-> 
-> -rw-rw-rw- 1 0 0     45 Mar  2 10:45 ref.fa
-> 
-> -rw-rw-rw- 1 0 0     45 Mar  2 10:45 ref.fa.bak
-
-Now we have some files to play with, however first let's look at some important flags for `cd`. As you might imagine change directory is a very vague command and therefore comes with useful add-ons:
+Before we move on, let's look at some important flags for `cd`. As you might imagine change directory is a very vague command and therefore comes with useful add-ons:
 
 ```shell
 $ cd .
@@ -149,36 +161,16 @@ $ cd ~
 
 As the saying goes, there's no place like home `~`. If you're lost this is always a good one to know, and you can always check where you end up by returning to our very first command `pwd`.
 
-While we are here let's make our own directory and move into it.  We do this by using the MaKe DIRectory command `mkdir` followed by the name of the directory we want to create.  This is probably a good time to highlight the importance of file/folder naming convention. General rules:
-
-  * Do not include spaces! my-file.txt or my-folder or my_folder NEVER my file.txt.
-  * Dates help a lot 2023-03-02-myfile.txt.
-  * No special characters as they get interpreted very differently on the command line to how you would read them.
-
-Now back to `mkdir`. Let's check we are in `/shared/data/tutorials/terminal-basics` make a folder called **test-folder** check it is there and then move into it. The commands you will need to do this are as follows:
-
-```shell
-$ pwd
-```
-```shell
-$ mkdir test-folder
-```
-```shell
-$ ls
-```
-```shell
-$ cd test-folder
-```
 
 ### Copying Files
 
-Now we are in our brand new folder let's put something in it. Let's copy a file from `/shared/data/tutorials/terminal-basics` so that we having something to play with. To do these we use `cp` as follows:
+Now we are in our brand new folder let's put something in it. Let's copy a file from `/root/tutorial/` so that we having something to play with. To do these we use `cp` as follows:
 
 ```shell
 $ cp ../orders.tsv .
 ```
 
-Now there are a few elements we are bringing together here. The first is that I am telling `cp` that the file I want to copy is one level up `../` called **orders.tsv** and I want to copy it to where I am `.`. I could specify the absolute path to the file using **/shared/data/tutorials/terminal-basics/orders.tsv** but typing can be boring and where there is safe shortcut we should try and use it.
+Now there are a few elements we are bringing together here. The first is that I am telling `cp` that the file I want to copy is one level up `../` called **orders.tsv** and I want to copy it to where I am `.`. I could specify the absolute path to the file using **/root/tutorial/orders.tsv** but typing can be boring and where there is safe shortcut we should try and use it.
 
 Have you tried autocompleting with **TAB** yet? I'll let you find that joy all by yourself.
 
