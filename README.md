@@ -34,7 +34,7 @@ Where any particular file or folder is located can be referred to by its' path. 
 
 For the purposes of getting started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address and click on the 'Start' 'Terminal Basics'. You should now have a terminal window in your browser that looks like the below.
 
-<img src="https://github.com/davidwcleary/AMGD/blob/main/Screenshot%2024-06-20%at%15.10.00.png">
+<img src="https://github.com/davidwcleary/AMGD/blob/008950de4a23ed4b0254659afbaac226c97dd1ab/Screenshot%202024-06-20%20at%2015.10.00.png">
 
 The first thing you might notice is the prompt **root@localhost:~/tutorial#** this shows that the shell is ready and waiting for some form of command. In other terminals the prompt may look different, but typically has **%** or **$** at the end. For ease all the example commands we encounter will be shown from a prompt of **$**
 
@@ -108,7 +108,7 @@ While we are here let's make our own directory and move into it.  We do this by 
   * Dates help a lot 2023-03-02-myfile.txt.
   * No special characters as they get interpreted very differently on the command line to how you would read them.
 
-Now back to `mkdir`. Let's check we are in `/root/tutorial` make a folder called **test-folder** check it is there and then move into it. The commands you will need to do this are as follows:
+Now back to `mkdir`. Let's check we are in `/root/tutorial` make a folder called **test-folder** and then check it is there. The commands you will need to do this are as follows:
 
 ```shell
 $ pwd
@@ -132,7 +132,7 @@ $ ls -ltrh
 >
 > drwxr-xr-x 2 root root    0 Jun 20  2024  test-folder
 
-To move around the directory structure we can use the Change Directory `cd` command.  
+Now we want to move into that new folder. To move around the directory structure we can use the Change Directory `cd` command specifying where we want to go.  
 
 ```shell
 $ cd test-folder/
