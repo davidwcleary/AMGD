@@ -32,7 +32,7 @@ Where any particular file or folder is located can be referred to by its' path. 
 
 ## Basic Commands
 
-For the purposes of getting started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address and click on the 'Start' 'Terminal Basics'. You should now have a terminal window in your browser that looks like the below.
+For the purposes of getting started without having to worry about installing software we are going to make use of a fantastic free resource at https://sandbox.bio/ Go to that address, scroll down to 'Terminal Basics' and click 'Start'. You should now have a terminal window in your browser that looks like the below.
 
 <img src="https://github.com/davidwcleary/AMGD/blob/008950de4a23ed4b0254659afbaac226c97dd1ab/Screenshot%202024-06-20%20at%2015.10.00.png">
 
@@ -72,7 +72,7 @@ It's worth noting that for this command, and indeed all of those I am going to i
 ```shell
 $ man ls
 ```
-In this environment the manual will be shown completely on screen. In other terminals you may get an interactive page which you can scroll down using the spacebar. In that situation, to quit the manual simply press **q**.
+You are now in an interactive page which you can scroll down using the spacebar. To quit the manual simply press **q**. This applies to all manual pages.
 
 Ok, back to listing directory contents. Sometimes you might want to know more about the files/directories that are present in that directory.  This is where we can use **flags**. Think of these as extra bits of command you can pass to the command, in this case `ls`.  Here we have an example of `-l` which denotes long listing. By using this flag we get a lot more information: 
 
@@ -377,7 +377,7 @@ Let's finish with the `rm` command, or remove. To get rid of burritos.tsv you ca
 $ rm burritos.tsv
 ```
 
-Be warned however, there is no recycle bin, no undo, no amount of swearing, praying or IT support that can bring a file back once it has been subjected to `rm`.  This goes for folder, sub-folders and operating systems.  There is a command that I will not spell out here that it used whilst in `/` will wipe out everything in your computer before your very eyes. So, make sure you know what it is you are deleting.
+Be warned however, there is no recycle bin, no undo, no amount of swearing, praying or IT support that can bring a file back once it has been subjected to `rm`.  This goes for folder, sub-folders and operating systems.  There is a command, which I will not spell out here, that if used whilst in `/` will wipe everything on your computer before your very eyes. So, make sure you know what it is you are deleting.
 
 ## Activity
 
