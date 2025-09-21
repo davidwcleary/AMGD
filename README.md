@@ -56,7 +56,7 @@ $ pwd
 ```
 In this case it will return:
 
-> /root/tutorial
+> /home/sandbox/terminal-basics
 
 ### What is here?
 Now let us have a look at what is here in this folder called **tutorial**.  Here we can use the `ls` (list) command. Here we see we have three files called **orders.tsv** **ref.fa** and **ref.fa.bak**. 
